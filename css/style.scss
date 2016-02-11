@@ -1,0 +1,16 @@
+---
+---
+
+$primary: #0085FF;
+$gray: #505050;
+
+@import
+    "base/_mixins.scss",
+    "base/_normalize.scss",
+    "base/_global.scss",
+    "_header.scss",
+    "_footer.scss",
+    "_index.scss",
+    "_portfolio.scss",
+    "_pages.scss"
+;

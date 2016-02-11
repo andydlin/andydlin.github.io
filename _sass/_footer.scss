@@ -1,0 +1,59 @@
+footer {
+    border-top: 1px solid #eeeeee;
+    color: lighten($gray, 15%);
+    font-size: 1.25em;
+    padding: 25px 0px;
+
+    .nav {
+        margin: 10px 0px;
+
+        li {
+            display: inline-block;
+            margin-left: 25px;
+
+            a {
+                color: $gray;
+                font-size: 0.95em;
+                padding: 0px;
+                @include transition(0.25s);
+
+                &:hover {
+                    background: none;
+                    color: darken($gray, 5%);
+                }
+            }
+
+            &.active a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+
+    .on-scroll {
+        @include transition-delay(400ms);
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+        .footer-left {
+            img {
+                max-width: 100px;
+            }
+        }
+
+        .footer-right {
+            margin-top: 15px;
+            text-align: center;
+
+            .nav li:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+}

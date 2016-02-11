@@ -1,0 +1,286 @@
+body.portfolio {
+    background: #f5f5f5;
+}
+
+.page-header.portfolio {
+    background: #000000;
+
+    .bg {
+        background-image: url('../img/sfother.jpg');
+        @include blur(2px);
+        opacity: 0.35;
+    }
+}
+
+.page-header.single_portfolio {
+    background: #000000;
+
+    .bg {
+        opacity: 0.35;
+    }
+
+    &.opendata .bg {
+        opacity: 0.45;
+    }
+    &.nikkiblades .bg {
+        @include blur(2px);
+        opacity: 0.25;
+    }
+}
+
+section {
+    padding: 125px 0px;
+
+    .items ul {
+        .item {
+            background: #ffffff;
+            @include border-radius(4px);
+            @include box-shadow(0px 1px 2px rgba(0,0,0,0.2));
+            display: inline-block;
+            float: left;
+            margin: 0 1% 30px;
+            max-height: 398px;
+            overflow: hidden;
+            position: relative;
+            top: 0px;
+            width: 31%;
+            z-index: 2;
+
+            .image {
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    bottom: 0;
+                    -webkit-filter: grayscale(25%);
+                    filter: grayscale(25%);
+                    height: 100%;
+                    left: 0;
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    width: 100%;
+                }
+            }
+
+            .info {
+                padding: 25px;
+
+                span {
+                    color: lighten($gray, 20%);
+                    display: block;
+                    font-weight: 300;
+                    margin-top: 8px;
+                }
+            }
+
+            a {
+                color: $gray;
+                cursor: pointer;
+                text-decoration: none;
+                width: 100%;
+            }
+        }
+    }
+
+    &.project {
+        position: relative;
+
+        .info {
+            padding-top: 50px;
+
+            hr {
+                margin: 25px 0px;
+            }
+
+            h1 {
+                margin-bottom: 15px;
+            }
+
+            p {
+                line-height: 25px;
+            }
+
+            a {
+                font-size: 10px;
+            }
+        }   
+
+        .controls {
+            .nav {
+                background: #f5f5f5;
+                color: lighten($gray, 45%);
+                font-size: 20px;
+                margin-top: -22px;
+                padding: 9px 15px 8px 14px;
+                position: absolute;
+                top: 50%;
+                @include transition(0.25s);
+
+                &.prev {
+                    @include border-radius(0px 4px 4px 0px);
+                    left: 0px;
+                }
+
+                &.next {
+                    @include border-radius(4px 0px 0px 4px);
+                    right: 0px;
+                }
+
+                &:hover {
+                    color: $gray;
+                }
+            }
+        } 
+
+        .preview {
+            border: 1px solid #e1e1e1;
+            @include border-radius(3px);
+            @include box-shadow(0 0 10px rgba(0,0,0,.1));
+            height: 420px;
+            margin: 0 0 0 auto;
+            overflow: hidden;
+            position: relative;
+            width: 400px;
+
+            &#silverspoon {
+                height: 419px;
+            }
+
+            .top-bar {
+                background: rgba(255,255,255,0.9);
+                @include box-shadow(0 1px 0 rgba(0,0,0,.1));
+                height: 20px;
+                position: relative;
+                width: 100%;
+                z-index: 2;
+
+                .dot {
+                    background: #f5f5f5;
+                    border: 1px solid #e1e1e1;
+                    @include border-radius(10px);
+                    display: inline-block;
+                    height: 5px;
+                    margin: 8px 0px 0px 5px;
+                    width: 5px;
+
+                    &:first-child {
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            img {
+                position: absolute;
+                @include transform(translateY(0));
+                @include transition(transform 3s);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    section.project .preview {
+        &#devarity:hover img {
+            @include transform(translateY(-430px));
+        }
+
+        &#opendata:hover img {
+            @include transform(translateY(-580px));
+        }
+
+        &#velocityclip:hover img {
+            @include transform(translateY(-755px));
+        }
+
+        &#lynchfitness:hover img {
+            @include transform(translateY(-975px));
+            @include transition(transform 4s);
+        }
+
+        &#clearaccessip:hover img {
+            @include transform(translateY(-1325px));
+            @include transition(transform 5s);
+        }
+    }
+}
+
+@media (min-width: 501px) {
+    section {
+        .items ul {
+            .item {
+                @include transition(box-shadow 0.25s);
+
+                img {
+                    @include transition(transform 0.75s);
+                    z-index: 1;
+                }
+
+                &:hover {
+                    @include box-shadow(0px 1px 8px rgba(0,0,0,0.3));
+
+                    img {
+                        @include border-radius(3px);
+                        -webkit-filter: grayscale(0%);
+                        filter: grayscale(0%);
+                        @include transform(scale(1.25));   
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    section {
+        .items ul {
+            .item {
+                margin: 0 1% 20px;
+                width: 48%;
+            }
+        }
+
+        &.project {
+            .preview {
+                margin: 45px auto 15px auto;
+            }
+
+            .controls {
+                margin-top: 25px;
+                text-align: center;
+
+                .nav {
+                    @include border-radius(0px !important);
+                    margin: 0;
+                    position: relative;
+                    top: 0;
+
+                    &.next {
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    body.portfolio section {
+        padding: 75px 0px;
+        
+        .items ul {
+            .item {
+                margin: 0px 0px 20px 0px;
+                max-height: 100%;
+                width: 100%;
+            }
+        }
+
+        &.project {
+            .preview {
+                max-width: 400px;
+                width: 100%;
+            }
+        }
+    }
+}

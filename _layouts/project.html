@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+        {% include header.html %}
+        <div class="page-header single_portfolio">
+            <div class="bg" style="background-image:url('/img/portfolio/{{ page.perma }}_bg.jpg');"></div>
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="on-scroll">{{ page.projectName }}</h1>
+                    <p class="on-scroll">{{ page.shortDescr }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <section class="project">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="info on-scroll">
+                                <h1>Role</h1>
+                                <p>{{ page.descr }}</p>
+                                <hr/>
+                                <h1>Tools</h1>
+                                <p>{{ page.tools }}</p>
+                                {% if page.website != "" %}
+                                    <br>
+                                    <a href="{{ page.website }}" target="_blank">view website</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div on-scroll="on-scroll" id="{{ page.perma }}" class="preview on-scroll">
+                                <div class="top-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img src="/img/portfolio/{{ page.perma }}_preview.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

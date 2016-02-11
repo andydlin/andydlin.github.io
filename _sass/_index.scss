@@ -1,0 +1,233 @@
+.scroll {
+    bottom: 30px;
+    cursor: pointer;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    @include transition-delay(2.5s);
+    width: 100%;
+    z-index: 2;
+
+    img {
+        display: inline-block;
+        width: 25px;
+    }
+}
+
+body.home {
+    .scroll {
+        display: inline-block;
+    }
+}
+
+.page-header.home {
+    background: #0E0841;
+    min-height: 800px;
+
+    .bg {
+        background-image: url('../img/downtown_sf.jpg');
+        @include blur(2px);
+        opacity: 0.25;
+    }
+
+    .header-content {
+        margin: 300px 0px;
+
+        h1 {
+            line-height: 50px;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+    }
+}
+
+body.home {
+    section {
+        padding: 150px 0px;
+        position: relative;
+        text-align: center;
+
+        h1 {
+            color: $gray;
+            font-weight: bold;
+        }
+
+        hr {
+            border-top: 5px solid $gray;
+            margin: 5px auto 0 auto;
+            width: 80px;
+        }
+
+        &.sec1 {
+            .about {
+                display: block;
+                margin: 100px auto 0 auto;
+                max-width: 950px;
+
+                >div {
+                    display: inline-block;
+                    float: left;
+                    width: 260px;
+
+                    .img {
+                        border: 5px solid $gray;
+                        @include border-radius(3px);
+                        line-height: 260px;
+                    }
+
+                    &.design {
+                        .img img {
+                            width: 135px;
+                        }
+                    }
+
+                    &.development {
+                        margin: 0px 85px;
+
+                        .img img {
+                            width: 85px;
+                        }
+                    }
+
+                    &.creative {
+                        .img img {
+                            width: 125px;
+                        }
+                    }
+
+                    .title {
+                        color: $gray;
+                        display: block;
+                        font-weight: bold;
+                        margin-top: 25px;
+                    }
+
+                    p {
+                        font-size: 1.15em;
+                        margin: 10px auto 0 auto;
+                        width: 175px;
+                    }
+                }
+            }
+        }
+
+        &.sec2 {
+            background: #000000;
+            padding: 250px 0px;
+
+            .bg {
+                @include background-image(url('/img/yosemite_road.jpg'));
+                @include blur(2px);
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+
+                &.in-view {
+                    opacity: 0.25;
+                }
+            }
+
+            .container {
+                position: relative;
+                z-index: 2;
+            }
+
+            h1 {
+                color: #ffffff;
+            }
+
+            hr {
+                border-color: #ffffff;
+            }
+
+            .about {
+                color: #ffffff;
+                display: block;
+                margin: 50px auto 0 auto;
+                max-width: 740px;
+
+                p {
+                    display: block;
+                    font-size: 1.5em;
+                    font-weight: 100;
+                    line-height: 28px;
+                    margin-bottom: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    body.home section {
+        &.sec1 {
+            .about {
+                >div {
+                    width: 210px;
+
+                    &.development {
+                        margin: 0px 45px;
+                    }
+
+                    .img {
+                        line-height: 210px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body.home section {
+        &.sec1 {
+            .about {
+                margin: 75px auto 0 auto;
+
+                >div {
+                    display: block;
+                    float: none;
+                    margin: 0 auto;
+                    width: 250px;
+
+                    &.development {
+                        margin: 45px auto;
+                    }
+
+                    .img {
+                        line-height: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .scroll {
+        display: none !important;
+    }
+
+    .page-header.home {
+        min-height: 300px;
+
+        .header-content {
+            margin: 200px 0px;
+        }
+    }
+
+    body.home section {
+        padding: 100px 0px;
+
+        &.sec2 {
+            padding: 100px 0px;
+        }
+    }
+}

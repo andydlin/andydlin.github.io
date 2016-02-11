@@ -1,0 +1,29 @@
+---
+layout: default
+page: portfolio
+header: <h1 class="on-scroll">Latest Work</h1><p class="on-scroll">Minimal, responsive websites for small businesses to web applications. Currently looking for opportunities to work on more web and mobile applications.</p>
+javascripts: <script type="text/javascript">$(document).ready(function(){$(".item").each(function(t){var i=100*(t+1)+"ms";$(this).css({"transition-delay":i,"-webkit-transition-delay":i})})});</script>
+---
+
+<section class="portfolio">
+    <div class="container">
+        <div class="items">
+            <ul class="clearfix">
+                {% assign projects = site.data.projects | get_projects_from_files %}
+                {% for project in projects %}
+                    <li class="item">
+                        <a href="/portfolio/{{ project.perma }}">
+                            <div class="image">
+                                <img src="/img/portfolio/{{ project.perma }}_thumb@2x.jpg">
+                            </div>
+                            <div class="info">
+                                <h3>{{ project.projectName }}</h3>
+                                <span>{{ project.category }}</span>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

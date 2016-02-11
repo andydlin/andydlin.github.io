@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body class="{{ page.page }}">
+        {% include header.html %}
+        <div class="page-header {{ page.page }}">
+            <div class="bg"></div>
+            <div class="container">
+                <div class="header-content">
+                    {{ page.header }}
+                </div>
+            </div>
+            {% if page.page == "home" %}
+                <span class="scroll on-scroll">
+                    <img alt="Scroll Down" src="/img/scroll.svg">
+                </span>
+            {% endif %}
+        </div>
+        <div class="page-wrapper">
+            {{ content }}
+        </div>
+    </div>
+    {% include footer.html %}
+    {{ page.javascripts }}
+  </body>
+</html>

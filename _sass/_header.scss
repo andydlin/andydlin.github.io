@@ -1,0 +1,77 @@
+.navbar {
+    left: 0px;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 2;
+
+    .logo {
+        float: right;
+        width: 32px;
+
+        img {
+            @include transition-delay(400ms);
+        }
+    }
+
+    .nav {
+        float: left;
+
+        li {
+        display: inline-block;
+
+            a {
+                color: #ffffff;
+                font-size: 1.15em;
+                @include transition(color 0.25s);
+
+                &:hover {
+                    background: none;
+                    color: darken($primary, 5%);
+                }
+
+                &:active,
+                &:focus {
+                    background: none;
+                    outline: none;
+                }
+            }
+
+            &.active a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .mobile-nav {
+        background: #ffffff;
+        height: 0;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        -webkit-transition: opacity .3s,height 0 .3s,padding-top 0 .3s;
+        transition: opacity .3s,height 0 .3s,padding-top 0 .3s;
+        width: 100%;
+        z-index: 99;
+
+        a {
+            color: $gray;
+            font-weight: 100;
+            opacity: 0;
+            @include transform(none);
+
+            &:hover,
+            &:active,
+            &:focus {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+    }
+}
